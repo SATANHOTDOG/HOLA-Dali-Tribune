@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOLA 大墩店業績處刑台 - 脊椎拯救戰報</title>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #e0e0e0;
+            --accent-color: #d32f2f;
+            --border-color: #333;
+            --highlight: #ff5252;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: var(--highlight);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .dashboard-info {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        .control-panel {
+            background: #1a1a1a;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .checkbox-group label {
+            background: #2a2a2a;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid #444;
+        }
+        .checkbox-group label:hover { background: #3a3a3a; }
+        .checkbox-group input:checked + span {
+            color: var(--highlight);
+            font-weight: bold;
+        }
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        select, input {
+            background: #222;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            font-family: inherit;
+        }
+        button {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+        }
+        button:hover { background: #b71c1c; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a1a1a;
+            color: var(--highlight);
+        }
+        .rank-1 { color: #ffd700; font-weight: bold; font-size: 1.2em; }
+        .rank-2 { color: #c0c0c0; font-weight: bold; }
+        .rank-3 { color: #cd7f32; font-weight: bold; }
+        #searchResult {
+            margin-top: 15px;
+            padding: 15px;
+            background: #2a1111;
+            border-left: 5px solid var(--highlight);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HOLA 業績結算與處刑系統</h1>
+    <div class="dashboard-info">
+        資料區間：<span id="dateRange">讀取中...</span>
+    </div>
+
+    <div class="control-panel">
+        <h3>戰區選擇 (可複選，不選即顯示全區大亂鬥)</h3>
+        <div class="checkbox-group" id="categoryFilters">
+            <label><input type="checkbox" value="028"> <span>028 La-Z-Boy</span></label>
+            <label><input type="checkbox" value="082"> <span>082 家具</span></label>
+            <label><input type="checkbox" value="066-003"> <span>066-003 床墊/床頭片/下墊</span></label>
+            <label><input type="checkbox" value="066-004"> <span>066-004 Kingsdown/SMS</span></label>
+        </div>
+
+        <div class="filters">
+            <select id="storeSelect">
+                <option value="ALL">全部分店</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="輸入業務工號或姓名尋仇...">
+            <button onclick="renderDashboard()">執行計算</button>
+        </div>
+        
+        <div id="searchResult"></div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>名次</th>
+                <th>業務員 (工號-姓名)</th>
+                <th>淨業績金額</th>
+                <th>所屬店別</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard">
+            <tr><td colspan="4" style="text-align:center;">正在從雲端撕開公司的遮羞布...</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRA6gIY15zG0FUfGgvIMxrKX4cWUfthgJImBTfG6zIk1Wztv3fIdGi44a3DjwgAMnY6wMhBKYttIt3D/pub?gid=1342555167&single=true&output=csv';
+        let rawData = [];
+
+        // 粗暴的 CSV 解析器
+        function parseCSV(text) {
+            let rows = [], row = [], curr = '', inQuotes = false;
+            for (let i = 0; i < text.length; i++) {
+                let char = text[i];
+                if (char === '"') {
+                    if (inQuotes && text[i+1] === '"') { curr += '"'; i++; } 
+                    else { inQuotes = !inQuotes; }
+                } else if (char === ',' && !inQuotes) {
+                    row.push(curr); curr = '';
+                } else if ((char === '\n' || char === '\r') && !inQuotes) {
+                    if (char === '\r' && text[i+1] === '\n') i++;
+                    row.push(curr); rows.push(row); row = []; curr = '';
+                } else { curr += char; }
+            }
+            if (curr || row.length) { row.push(curr); rows.push(row); }
+            return rows;
+        }
+
+        async function init() {
+            try {
+                const res = await fetch(CSV_URL);
+                const text = await res.text();
+                rawData = parseCSV(text);
+                
+                // 抓取 S欄 (index 18) 的報表區間
+                let dateStr = "未提供區間";
+                for(let i = 1; i < rawData.length; i++) {
+                    if(rawData[i][18] && rawData[i][18].trim() !== '') {
+                        dateStr = rawData[i][18].trim();
+                        break;
+                    }
+                }
+                document.getElementById('dateRange').innerText = dateStr;
+
+                // 抓取所有店別填入下拉選單
+                let stores = new Set();
+                for(let i = 1; i < rawData.length; i++) {
+                    if(rawData[i][0]) stores.add(rawData[i][0].trim());
+                }
+                const storeSelect = document.getElementById('storeSelect');
+                stores.forEach(store => {
+                    if(store) storeSelect.innerHTML += `<option value="${store}">${store}</option>`;
+                });
+
+                renderDashboard();
+            } catch (error) {
+                document.getElementById('leaderboard').innerHTML = `<tr><td colspan="4">讀取失敗。可能是公司的爛磁場干擾了連線。</td></tr>`;
+            }
+        }
+
+        function formatMoney(num) {
+            return "$" + num.toLocaleString('en-US');
+        }
+
+        function renderDashboard() {
+            const selectedStore = document.getElementById('storeSelect').value;
+            const searchKeyword = document.getElementById('searchInput').value.trim().toLowerCase();
+            
+            // 收集打勾的分類
+            const checkboxes = document.querySelectorAll('.checkbox-group input:checked');
+            const activeCats = Array.from(checkboxes).map(cb => cb.value);
+
+            let salesMap = {};
+
+            // i=1 略過標題列
+            for(let i = 1; i < rawData.length; i++) {
+                let row = rawData[i];
+                if(row.length < 11) continue;
+
+                let store = row[0] ? row[0].trim() : '';
+                let rep = row[2] ? row[2].trim() : '無名氏';
+                let subDept = parseInt(row[6], 10);
+                let cls = parseInt(row[7], 10);
+                let amount = parseInt(row[10], 10) || 0;
+
+                // 1. 店別篩選
+                if (selectedStore !== 'ALL' && store !== selectedStore) continue;
+
+                // 2. 分類篩選 (複選邏輯：只要符合其中一個勾選項目就算數)
+                let matchCat = false;
+                if (activeCats.length === 0) {
+                    matchCat = true; // 沒勾就是全大亂鬥
+                } else {
+                    for (let cat of activeCats) {
+                        if (cat === '028' && subDept === 28) matchCat = true;
+                        if (cat === '082' && subDept === 82) matchCat = true;
+                        if (cat === '066-003' && subDept === 66 && cls === 3) matchCat = true;
+                        if (cat === '066-004' && subDept === 66 && cls === 4) matchCat = true;
+                    }
+                }
+                
+                if (!matchCat) continue;
+
+                if (!salesMap[rep]) {
+                    salesMap[rep] = { name: rep, store: store, total: 0 };
+                }
+                salesMap[rep].total += amount;
+            }
+
+            // 轉陣列並排序
+            let sortedSales = Object.values(salesMap).sort((a, b) => b.total - a.total);
+            
+            // 處理三十名列表
+            let tbody = '';
+            let limit = Math.min(30, sortedSales.length);
+            for(let i = 0; i < limit; i++) {
+                let data = sortedSales[i];
+                let rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
+                tbody += `
+                    <tr>
+                        <td class="${rankClass}">${i + 1}</td>
+                        <td>${data.name}</td>
+                        <td>${formatMoney(data.total)}</td>
+                        <td>${data.store}</td>
+                    </tr>
+                `;
+            }
+            if(sortedSales.length === 0) tbody = `<tr><td colspan="4" style="text-align:center;">這區間沒有半個活人賣出東西。</td></tr>`;
+            document.getElementById('leaderboard').innerHTML = tbody;
+
+            // 處理仇人搜尋
+            let searchDiv = document.getElementById('searchResult');
+            if (searchKeyword) {
+                let foundIndex = sortedSales.findIndex(s => s.name.toLowerCase().includes(searchKeyword));
+                if (foundIndex !== -1) {
+                    let target = sortedSales[foundIndex];
+                    searchDiv.style.display = 'block';
+                    searchDiv.innerHTML = `<strong>尋仇結果：</strong> 業務員 <strong>${target.name}</strong> 
+                        在目前篩選條件下排名第 <strong>${foundIndex + 1}</strong>，
+                        淨業績為 <strong>${formatMoney(target.total)}</strong> (所屬店別: ${target.store})。`;
+                } else {
+                    searchDiv.style.display = 'block';
+                    searchDiv.innerHTML = `<strong>尋仇結果：</strong> 找不到這個廢物，他可能根本沒賣出半張指定的分類，或者名字打錯了。`;
+                }
+            } else {
+                searchDiv.style.display = 'none';
+            }
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
