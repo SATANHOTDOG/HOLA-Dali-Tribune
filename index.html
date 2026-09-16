@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB4PSIxMCIgeT0iNjAiIHdpZHRoPSIyNiIgaGVpZ2h0PSI0MCIgZmlsbD0iI0QzMkYyRiIvPjx0ZXh0IHg9IjIzIiB5PSI4OCIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjI8L3RleHQ+PHJlY3QgeD0iMzciIHk9IjQ1IiB3aWR0aD0iMjYiIGhlaWdodD0iNTUiIGZpbGw9IiNGNDQzMzYiLz48dGV4dCB4PSI1MCIgeT0iODgiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIyIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4xPC90ZXh0PjxyZWN0IHg9IjY0IiB5PSI3MCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjQjcxQzFDIi8+PHRleHQgeD0iNzciIHk9IjkyIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MzwvdGV4dD48cmVjdCB4PSI0MCIgeT0iMzgiIHdpZHRoPSIyMCIgaGVpZ2h0PSI3IiBmaWxsPSIjM0UyNzIzIi8+PHBhdGggZD0iTTQ4IDMwIEw1MiAzMCBMNTQgMzggTDQ2IDM4IFoiIGZpbGw9IiNGRkMxMDciLz48cGF0aCBkPSJNMzggMTUgUTUwIDM1IDYyIDE1IFoiIGZpbGw9IiNGRkMxMDciLz48cmVjdCB4PSIzOCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZDMTA3Ii8+PHBhdGggZD0iTTM4IDEyIEMzMCAxMiAzMCAyNSA0MiAyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZDMTA3IiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNNjIgMTIgQzcwIDEyIDcwIDI1IDU4IDIyIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkMxMDciIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB4PSIxMCIgeT0iNjAiIHdpZHRoPSIyNiIgaGVpZ2h0PSI0MCIgZmlsbD0iI0QzMkYyRiIvPjx0ZXh0IHg9IjIzIiB5PSI4OCIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjI8L3RleHQ+PHJlY3QgeD0iMzciIHk9IjQ1IiB3aWR0aD0iMjYiIGhlaWdodD0iNTUiIGZpbGw9IiNGNDQzMzYiLz48dGV4dCB4PSI1MCIgeT0iODgiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIyIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4xPC90ZXh0PjxyZWN0IHg9IjY0IiB5PSI3MCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjQjcxQzFDIi8+PHRleHQgeD0iNzciIHk9IjkyIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MzwvdGV4dD48cmVjdCB4PSI0MCIgeT0iMzgiIHdpZHRoPSIyMCIgaGVpZ2h0PSI3IiBmaWxsPSIjM0UyNzIzIi8+PHBhdGggZD0iTTQ4IDMwIEw1MiAzMCBMNTQgMzggTDQ2IDM4IFoiIGZpbGw9IiNGRkMxMDciLz48cGF0aCBkPSJNMzggMTUgUTUwIDM1IDYyIDE1IFoiIGZpbGw9IiNGRkMxMDciLz48cmVjdCB4PSIzOCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZDMTA3Ii8+PHBhdGggZD0iTTM4IDEyIEMzMCAxMiAzMCAyNSA0MiAyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZDMTA3IiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNNjIgMTIgQzcwIDEyIDcwIDI1IDU4IDIyIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkMxMDciIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOLA 家具業績排行榜</title>
+    <title>HOLA 業績處刑台 - 脊椎拯救戰報</title>
     <style>
         :root {
             --bg-color: #0d0d0d;
@@ -20,14 +18,16 @@
             font-family: 'Courier New', Courier, monospace;
             padding: 20px;
             margin: 0;
+            line-height: 1.4;
         }
-        h1 {
+        h1, h2 {
             color: var(--highlight);
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+        h2 { font-size: 1.3em; margin-top: 40px; color: #ff8a80; }
         .dashboard-info {
             font-size: 1.2em;
             margin-bottom: 20px;
@@ -63,6 +63,7 @@
             display: flex;
             gap: 15px;
             margin-bottom: 15px;
+            flex-wrap: wrap;
         }
         select, input {
             background: #222;
@@ -81,10 +82,19 @@
             font-weight: bold;
         }
         button:hover { background: #b71c1c; }
+        .table-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .table-wrapper {
+            flex: 1;
+            min-width: 300px;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         th, td {
             border: 1px solid var(--border-color);
@@ -109,13 +119,13 @@
 </head>
 <body>
 
-    <h1>HOLA 家具業績排行榜</h1>
+    <h1>HOLA 業績結算與處刑系統</h1>
     <div class="dashboard-info">
-        資料區間：<span id="dateRange">讀取中...</span>
+        觀測區間：<span id="dateRange">連線中...準備撕開報表...</span>
     </div>
 
     <div class="control-panel">
-        <h3>戰區選擇 (可複選，不選即顯示全區大亂鬥)</h3>
+        <h3>戰區選擇 (影響所有排名表)</h3>
         <div class="checkbox-group" id="categoryFilters">
             <label><input type="checkbox" value="028"> <span>028 La-Z-Boy</span></label>
             <label><input type="checkbox" value="082"> <span>082 家具</span></label>
@@ -125,34 +135,56 @@
 
         <div class="filters">
             <select id="storeSelect">
-                <option value="ALL">全部分店</option>
+                <option value="ALL">全部分店 (僅過濾業務員排行)</option>
             </select>
-            <input type="text" id="searchInput" placeholder="輸入業務工號或姓名尋仇...">
-            <button onclick="renderDashboard()">執行計算</button>
+            <input type="text" id="searchInput" placeholder="輸入工號或姓名尋仇...">
+            <button onclick="renderDashboard()">重算業績</button>
         </div>
         
         <div id="searchResult"></div>
     </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>名次</th>
-                <th>業務員 (工號-姓名)</th>
-                <th>淨業績金額</th>
-                <th>所屬店別</th>
-            </tr>
-        </thead>
-        <tbody id="leaderboard">
-            <tr><td colspan="4" style="text-align:center;">正在從雲端撕開公司的遮羞布...</td></tr>
-        </tbody>
-    </table>
+    <div class="table-container">
+        <!-- 業務員排行榜 -->
+        <div class="table-wrapper">
+            <h2>個人戰力 (前30名)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>名次</th>
+                        <th>業務員</th>
+                        <th>淨業績金額</th>
+                        <th>店別</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard">
+                    <tr><td colspan="4" style="text-align:center;">正在通靈中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 門市排行榜 -->
+        <div class="table-wrapper">
+            <h2>全台門市陪葬指數 (全店排行)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>名次</th>
+                        <th>店別</th>
+                        <th>淨業績金額</th>
+                    </tr>
+                </thead>
+                <tbody id="storeLeaderboard">
+                    <tr><td colspan="3" style="text-align:center;">正在通靈中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <script>
         const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRA6gIY15zG0FUfGgvIMxrKX4cWUfthgJImBTfG6zIk1Wztv3fIdGi44a3DjwgAMnY6wMhBKYttIt3D/pub?gid=1342555167&single=true&output=csv';
         let rawData = [];
 
-        // 粗暴的 CSV 解析器
         function parseCSV(text) {
             let rows = [], row = [], curr = '', inQuotes = false;
             for (let i = 0; i < text.length; i++) {
@@ -177,8 +209,7 @@
                 const text = await res.text();
                 rawData = parseCSV(text);
                 
-                // 抓取 S欄 (index 18) 的報表區間
-                let dateStr = "未提供區間";
+                let dateStr = "公司不敢面對的某個時期";
                 for(let i = 1; i < rawData.length; i++) {
                     if(rawData[i][18] && rawData[i][18].trim() !== '') {
                         dateStr = rawData[i][18].trim();
@@ -187,7 +218,6 @@
                 }
                 document.getElementById('dateRange').innerText = dateStr;
 
-                // 抓取所有店別填入下拉選單
                 let stores = new Set();
                 for(let i = 1; i < rawData.length; i++) {
                     if(rawData[i][0]) stores.add(rawData[i][0].trim());
@@ -199,7 +229,7 @@
 
                 renderDashboard();
             } catch (error) {
-                document.getElementById('leaderboard').innerHTML = `<tr><td colspan="4">讀取失敗。可能是公司的爛磁場干擾了連線。</td></tr>`;
+                document.getElementById('leaderboard').innerHTML = `<tr><td colspan="4">爛磁場干擾，讀取失敗。</td></tr>`;
             }
         }
 
@@ -210,31 +240,25 @@
         function renderDashboard() {
             const selectedStore = document.getElementById('storeSelect').value;
             const searchKeyword = document.getElementById('searchInput').value.trim().toLowerCase();
-            
-            // 收集打勾的分類
             const checkboxes = document.querySelectorAll('.checkbox-group input:checked');
             const activeCats = Array.from(checkboxes).map(cb => cb.value);
 
             let salesMap = {};
+            let storeTotalMap = {};
 
-            // i=1 略過標題列
             for(let i = 1; i < rawData.length; i++) {
                 let row = rawData[i];
                 if(row.length < 11) continue;
 
-                let store = row[0] ? row[0].trim() : '';
+                let store = row[0] ? row[0].trim() : '幽靈分店';
                 let rep = row[2] ? row[2].trim() : '無名氏';
                 let subDept = parseInt(row[6], 10);
                 let cls = parseInt(row[7], 10);
                 let amount = parseInt(row[10], 10) || 0;
 
-                // 1. 店別篩選
-                if (selectedStore !== 'ALL' && store !== selectedStore) continue;
-
-                // 2. 分類篩選 (複選邏輯：只要符合其中一個勾選項目就算數)
                 let matchCat = false;
                 if (activeCats.length === 0) {
-                    matchCat = true; // 沒勾就是全大亂鬥
+                    matchCat = true;
                 } else {
                     for (let cat of activeCats) {
                         if (cat === '028' && subDept === 28) matchCat = true;
@@ -246,34 +270,45 @@
                 
                 if (!matchCat) continue;
 
+                // 累加門市總業績 (不受下拉選單影響)
+                if (!storeTotalMap[store]) storeTotalMap[store] = 0;
+                storeTotalMap[store] += amount;
+
+                // 累加個人業績 (受下拉選單影響)
+                if (selectedStore !== 'ALL' && store !== selectedStore) continue;
+
                 if (!salesMap[rep]) {
                     salesMap[rep] = { name: rep, store: store, total: 0 };
                 }
                 salesMap[rep].total += amount;
             }
 
-            // 轉陣列並排序
+            // 渲染業務員排行榜
             let sortedSales = Object.values(salesMap).sort((a, b) => b.total - a.total);
-            
-            // 處理三十名列表
             let tbody = '';
             let limit = Math.min(30, sortedSales.length);
             for(let i = 0; i < limit; i++) {
                 let data = sortedSales[i];
                 let rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
-                tbody += `
-                    <tr>
-                        <td class="${rankClass}">${i + 1}</td>
-                        <td>${data.name}</td>
-                        <td>${formatMoney(data.total)}</td>
-                        <td>${data.store}</td>
-                    </tr>
-                `;
+                tbody += `<tr><td class="${rankClass}">${i + 1}</td><td>${data.name}</td><td>${formatMoney(data.total)}</td><td>${data.store}</td></tr>`;
             }
-            if(sortedSales.length === 0) tbody = `<tr><td colspan="4" style="text-align:center;">這區間沒有半個活人賣出東西。</td></tr>`;
+            if(sortedSales.length === 0) tbody = `<tr><td colspan="4" style="text-align:center;">沒半個活人賣出東西。</td></tr>`;
             document.getElementById('leaderboard').innerHTML = tbody;
 
-            // 處理仇人搜尋
+            // 渲染門市排行榜
+            let sortedStores = Object.entries(storeTotalMap)
+                                     .map(([storeName, total]) => ({ storeName, total }))
+                                     .sort((a, b) => b.total - a.total);
+            let storeBody = '';
+            for(let i = 0; i < sortedStores.length; i++) {
+                let sData = sortedStores[i];
+                let rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
+                storeBody += `<tr><td class="${rankClass}">${i + 1}</td><td>${sData.storeName}</td><td>${formatMoney(sData.total)}</td></tr>`;
+            }
+            if(sortedStores.length === 0) storeBody = `<tr><td colspan="3" style="text-align:center;">全台門市集體原地往生。</td></tr>`;
+            document.getElementById('storeLeaderboard').innerHTML = storeBody;
+
+            // 仇人搜尋邏輯
             let searchDiv = document.getElementById('searchResult');
             if (searchKeyword) {
                 let foundIndex = sortedSales.findIndex(s => s.name.toLowerCase().includes(searchKeyword));
@@ -281,11 +316,11 @@
                     let target = sortedSales[foundIndex];
                     searchDiv.style.display = 'block';
                     searchDiv.innerHTML = `<strong>尋仇結果：</strong> 業務員 <strong>${target.name}</strong> 
-                        在目前篩選條件下排名第 <strong>${foundIndex + 1}</strong>，
-                        淨業績為 <strong>${formatMoney(target.total)}</strong> (所屬店別: ${target.store})。`;
+                        排名第 <strong>${foundIndex + 1}</strong>，
+                        淨業績 <strong>${formatMoney(target.total)}</strong> (店別: ${target.store})。`;
                 } else {
                     searchDiv.style.display = 'block';
-                    searchDiv.innerHTML = `<strong>尋仇結果：</strong> 找不到這個廢物，他可能根本沒賣出半張指定的分類，或者名字打錯了。`;
+                    searchDiv.innerHTML = `<strong>尋仇結果：</strong> 找不到這傢伙，八成是被那些醜不拉磯的低背沙發給壓死了。`;
                 }
             } else {
                 searchDiv.style.display = 'none';
