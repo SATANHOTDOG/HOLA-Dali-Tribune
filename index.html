@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB4PSIxMCIgeT0iNjAiIHdpZHRoPSIyNiIgaGVpZ2h0PSI0MCIgZmlsbD0iI0QzMkYyRiIvPjx0ZXh0IHg9IjIzIiB5PSI4OCIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjI8L3RleHQ+PHJlY3QgeD0iMzciIHk9IjQ1IiB3aWR0aD0iMjYiIGhlaWdodD0iNTUiIGZpbGw9IiNGNDQzMzYiLz48dGV4dCB4PSI1MCIgeT0iODgiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIyIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4xPC90ZXh0PjxyZWN0IHg9IjY0IiB5PSI3MCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjQjcxQzFDIi8+PHRleHQgeD0iNzciIHk9IjkyIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MzwvdGV4dD48cmVjdCB4PSI0MCIgeT0iMzgiIHdpZHRoPSIyMCIgaGVpZ2h0PSI3IiBmaWxsPSIjM0UyNzIzIi8+PHBhdGggZD0iTTQ4IDMwIEw1MiAzMCBMNTQgMzggTDQ2IDM4IFoiIGZpbGw9IiNGRkMxMDciLz48cGF0aCBkPSJNMzggMTUgUTUwIDM1IDYyIDE1IFoiIGZpbGw9IiNGRkMxMDciLz48cmVjdCB4PSIzOCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZDMTA3Ii8+PHBhdGggZD0iTTM4IDEyIEMzMCAxMiAzMCAyNSA0MiAyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZDMTA3IiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNNjIgMTIgQzcwIDEyIDcwIDI1IDU4IDIyIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkMxMDciIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB4PSIxMCIgeT0iNjAiIHdpZHRoPSIyNiIgaGVpZ2h0PSI0MCIgZmlsbD0iI0QzMkYyRiIvPjx0ZXh0IHg9IjIzIiB5PSI4OCIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjI8L3RleHQ+PHJlY3QgeD0iMzciIHk9IjQ1IiB3aWR0aD0iMjYiIGhlaWdodD0iNTUiIGZpbGw9IiNGNDQzMzYiLz48dGV4dCB4PSI1MCIgeT0iODgiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIyIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4xPC90ZXh0PjxyZWN0IHg9IjY0IiB5PSI3MCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjQjcxQzFDIi8+PHRleHQgeD0iNzciIHk9IjkyIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MzwvdGV4dD48cmVjdCB4PSI0MCIgeT0iMzgiIHdpZHRoPSIyMCIgaGVpZ2h0PSI3IiBmaWxsPSIjM0UyNzIzIi8+PHBhdGggZD0iTTQ4IDMwIEw1MiAzMCBMNTQgMzggTDQ2IDM4IFoiIGZpbGw9IiNGRkMxMDciLz48cGF0aCBkPSJNMzggMTUgUTUwIDM1IDYyIDE1IFoiIGZpbGw9IiNGRkMxMDciLz48cmVjdCB4PSIzOCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZDMTA3Ii8+PHBhdGggZD0iTTM4IDEyIEMzMCAxMiAzMCAyNSA0MiAyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZDMTA3IiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNNjIgMTIgQzcwIDEyIDcwIDI1IDU4IDIyIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkMxMDciIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOLA 家具業績排行</title>
+    <title>HOLA 業績處刑台 - 脊椎拯救戰報</title>
     <style>
         :root {
             --bg-color: #0d0d0d;
@@ -121,7 +119,7 @@
 </head>
 <body>
 
-    <h1>HOLA 家具業績排行</h1>
+    <h1>HOLA 業績結算與處刑系統</h1>
     <div class="dashboard-info">
         觀測區間：<span id="dateRange">連線中...準備撕開報表...</span>
     </div>
@@ -167,7 +165,7 @@
 
         <!-- 門市排行榜 -->
         <div class="table-wrapper">
-            <h2>全台門市指數 (全店排行)</h2>
+            <h2>全台門市陪葬指數 (全店排行)</h2>
             <table>
                 <thead>
                     <tr>
@@ -186,6 +184,46 @@
     <script>
         const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRA6gIY15zG0FUfGgvIMxrKX4cWUfthgJImBTfG6zIk1Wztv3fIdGi44a3DjwgAMnY6wMhBKYttIt3D/pub?gid=1342555167&single=true&output=csv';
         let rawData = [];
+
+        // 門市名稱對照表 (如果以後有新店，照著這個格式加在這裡面，記得最後要逗號，最後一筆不用)
+        const storeNames = {
+            '603': '台北內湖店', '00603': '台北內湖店',
+            '604': '台北士林店', '00604': '台北士林店',
+            '607': '台中北屯店', '00607': '台中北屯店',
+            '608': '高雄左營店', '00608': '高雄左營店',
+            '609': '台南仁德店', '00609': '台南仁德店',
+            '613': '新北土城店', '00613': '新北土城店',
+            '616': '新竹店', '00616': '新竹店',
+            '617': '新北新店店', '00617': '新北新店店',
+            '620': '彰化店', '00620': '彰化店',
+            '621': '桃園南崁店', '00621': '桃園南崁店',
+            '622': '高雄夢時代店', '00622': '高雄夢時代店',
+            '623': '嘉義店', '00623': '嘉義店',
+            '624': '新北三峽店', '00624': '新北三峽店',
+            '628': '台中西屯店', '00628': '台中西屯店',
+            '630': '台中大墩店', '00630': '台中大墩店', // ← 這間店裡有一群賣期貨的高分仔
+            '631': '宜蘭羅東店', '00631': '宜蘭羅東店',
+            '632': '台南店', '00632': '台南店',
+            '633': '斗六店', '00633': '斗六店',
+            '634': '新北重新店', '00634': '新北重新店',
+            '636': '中和環球店', '00636': '中和環球店',
+            '637': '林口三井店', '00637': '林口三井店',
+            '638': '竹北享平方店', '00638': '竹北享平方店',
+            '639': '台南三越小北店', '00639': '台南三越小北店',
+            '640': '台中漢神洲際店', '00640': '台中漢神洲際店',
+            '641': '新店裕隆城店', '00641': '新店裕隆城店',
+            '696': 'HOLA網路店', '00696': 'HOLA網路店',
+            '01B66': 'B2B', '1B66': 'B2B',
+            '01BA1': 'LZB大葉高島屋店', '1BA1': 'LZB大葉高島屋店',
+            '01BA2': 'LZB微風南京店', '1BA2': 'LZB微風南京店',
+            '01BA3': 'LZB中壢SOGO店', '1BA3': 'LZB中壢SOGO店'
+        };
+
+        function getFullStoreName(storeCode) {
+            let code = storeCode.trim();
+            // 如果代碼在對照表裡，就回傳 "代碼-店名"，否則只回傳代碼
+            return storeNames[code] ? `${code}-${storeNames[code]}` : code;
+        }
 
         function parseCSV(text) {
             let rows = [], row = [], curr = '', inQuotes = false;
@@ -226,7 +264,10 @@
                 }
                 const storeSelect = document.getElementById('storeSelect');
                 stores.forEach(store => {
-                    if(store) storeSelect.innerHTML += `<option value="${store}">${store}</option>`;
+                    if(store) {
+                        let fullName = getFullStoreName(store);
+                        storeSelect.innerHTML += `<option value="${store}">${fullName}</option>`;
+                    }
                 });
 
                 renderDashboard();
@@ -252,7 +293,8 @@
                 let row = rawData[i];
                 if(row.length < 11) continue;
 
-                let store = row[0] ? row[0].trim() : '幽靈分店';
+                let rawStoreCode = row[0] ? row[0].trim() : '幽靈分店';
+                let store = getFullStoreName(rawStoreCode);
                 let rep = row[2] ? row[2].trim() : '無名氏';
                 let subDept = parseInt(row[6], 10);
                 let cls = parseInt(row[7], 10);
@@ -272,12 +314,12 @@
                 
                 if (!matchCat) continue;
 
-                // 累加門市總業績 (不受下拉選單影響)
+                // 累加門市總業績
                 if (!storeTotalMap[store]) storeTotalMap[store] = 0;
                 storeTotalMap[store] += amount;
 
-                // 累加個人業績 (受下拉選單影響)
-                if (selectedStore !== 'ALL' && store !== selectedStore) continue;
+                // 累加個人業績
+                if (selectedStore !== 'ALL' && rawStoreCode !== selectedStore) continue;
 
                 if (!salesMap[rep]) {
                     salesMap[rep] = { name: rep, store: store, total: 0 };
